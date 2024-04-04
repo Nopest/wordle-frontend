@@ -1,0 +1,22 @@
+
+<app-end-modale *ngIf="isPlaying == false"></app-end-modale>
+<div
+  *ngFor="let guess of currentGuesses; let guessIndex = index"
+  class="letter-line"
+>
+  <span
+    *ngFor="let letter of getGuess(guess); let letterIndex = index"
+    [className]="colors[guessIndex][letterIndex] + ' letter'"
+    class="letter"
+  >
+    {{ letter || "_" }}
+  </span>
+</div>
+<div>
+  <span
+    *ngFor="let letter of allLetters"
+    [className]="letter.color + ' alphabet-letter'"
+  >
+    {{ letter.letter.toUpperCase() }}
+  </span>
+</div>

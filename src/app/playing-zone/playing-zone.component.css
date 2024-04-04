@@ -1,0 +1,35 @@
+.letter {
+    padding: 1rem;
+    color: white;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+    background-color: black;
+    line-height: 3rem;
+    width: 3rem;
+    border: 1px solid white;
+    text-align: center;
+    font-size: 22px;
+}
+
+.letter-line {
+    display: flex;
+    flex-direction: row;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.alphabet-letter {
+    padding: 1rem;
+    color: white;
+    margin-right: 1rem;
+}

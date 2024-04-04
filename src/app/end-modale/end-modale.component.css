@@ -1,0 +1,17 @@
+.modale-background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 30%;
+}
+
+.modale-body {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    background-color: chartreuse;
+    opacity: 100%;
+}
