@@ -1,0 +1,40 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: wordle-frontend-ingress
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: public
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/ssl-passthrough: 'false'
+    nginx.ingress.kubernetes.io/whitelist-source-range-DISABLED: >-
+      127.0.0.1/8,169.254.0.0/16,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,163.172.110.98/32,82.66.140.220/32,93.245.0.157/32,24.201.74.0/24
+spec:
+  tls:
+    - hosts:
+        - nopest.ovh
+      secretName: nopest-tls
+  rules:
+    - host: nopest.ovh
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wordle-frontend-service
+                port:
+                  number: 80
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: wordle-backend-service
+                port:
+                  number: 5000
+status:
+  loadBalancer:
+    ingress:
+      - ip: 127.0.0.1

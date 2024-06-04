@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordle-frontend-deployment
+  labels:
+    app: wordle-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordle-frontend
+  template:
+    metadata:
+      labels:
+        app: wordle-frontend
+    spec:
+      containers:
+      - name: wordle-frontend
+        image: nopest/wordle-test:front-0.0.0
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: regcred
