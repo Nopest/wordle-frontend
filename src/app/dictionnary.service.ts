@@ -5,7 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   providedIn: 'root',
 })
 export class DictionnaryService {
-  backendURL = 'http://127.0.0.1:5000';
+  backendURL = 'http://88.127.67.70:50001';
 
   constructor(private http: HttpClient) {}
 
